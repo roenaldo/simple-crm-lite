@@ -13,12 +13,10 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "customers")
 @Data
-@NoArgsConstructor
 @JsonPropertyOrder({ "id", "firstName", "lastName", "email", "contactNo", "jobTitle", "yearOfBirth" })
 public class Customer {
   @Id
@@ -48,6 +46,9 @@ public class Customer {
 
   @Column(name = "year_of_birth")
   private int yearOfBirth;
+
+  public Customer() {
+  }
 
   // Keep this constructor — it has custom logic used for preloading data
   public Customer(String firstName, String lastName) {
